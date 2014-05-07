@@ -16,6 +16,7 @@ public class main
      */
     public static void main(String[] args) throws IOException, DicomException 
     {
+        /* Change path to fit your System*/
         String filename = "F:\\Downloads\\iso-inhalt";
         DicomImporter di = new DicomImporter();
         di.importDicomDirectory(filename);
