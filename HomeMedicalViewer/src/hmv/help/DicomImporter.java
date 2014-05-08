@@ -2,12 +2,19 @@ package hmv.help;
 
 import com.pixelmed.dicom.DicomFileUtilities;
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * @author HMV - Home Medical Viewer
  */
 public class DicomImporter 
 {
+    private ArrayList<File> dicomFiles = new ArrayList<File>();
+    
+    public DicomImporter()
+    {      
+    }
+    
     public void importDicomDirectory(String pathName)
     {
         if(pathName != null)
@@ -43,13 +50,13 @@ public class DicomImporter
             if(dicomdir != null)
             {
                 // Wir haben eine DICOMDIR. Jetzt nach validen Bildern suchen!
-                dicomdir = getFiles(dicomdir);
-                if(dicomdir != null)
+                getFilePath(dicomdir);
+                if(this.dicomFiles.size() > 0)
                 {
                     /* 
                         Hier gehts morgen weiter
                     */
-                    
+                    System.out.println("Anzahl Bilder: " + this.dicomFiles.size());
                 }
                 else
                 {
@@ -59,21 +66,20 @@ public class DicomImporter
         }
     }
     
-    private File getFiles(File dicomdir)
+    private void getFilePath(File dicomdir)
     {
         File[] listOfFiles = dicomdir.listFiles();
         for(File file : listOfFiles)
         {
             if(DicomFileUtilities.isDicomOrAcrNemaFile(file) && !file.getName().toLowerCase().equals("dicomdir"))
             {
-                System.out.println("FOUND FILE: " + file.getParentFile());
-                return file.getParentFile();
+                System.out.println("FOUND FILE: " + file.getAbsolutePath());
+                this.dicomFiles.add(file);
             }
             if(file.isDirectory())
             {
-                getFiles(file);
+                getFilePath(file);
             }
         }
-        return null;
     }
 }

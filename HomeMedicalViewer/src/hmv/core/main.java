@@ -25,8 +25,8 @@ public class main
         /* Change path to fit your System*/
         
         
-        String filename = "F:\\Downloads\\iso-inhalt\\IMAGES\\00020";
-        
+        String filename = "F:\\Downloads\\iso-inhalt\\DICOMDIR";
+        /*
         AttributeList aList = new AttributeList();
         TransferSyntax tSyn = new TransferSyntax("1.2.840.10008.1.2");
         DicomInputStream dis = new DicomInputStream(new File(filename));
@@ -61,13 +61,11 @@ public class main
         for(int j = 0; j<mutErg1.length; j++)
         {
             gesamt = gesamt + (mutErg2[j]-mutErg1[j]);
-        }    
-        
-        
+        }          
         System.out.println("Gesamt: " + gesamt + " Gesamtzeit für 2 Bilder: " + (end-start));
+        */
         
         DicomImporter di = new DicomImporter();
         di.importDicomDirectory(filename);
-        System.out.println(DicomFileUtilities.isDicomOrAcrNemaFile(filename));
     }
 }

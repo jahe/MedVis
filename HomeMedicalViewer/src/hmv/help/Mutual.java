@@ -21,7 +21,7 @@ public class Mutual
             }
             else
             {
-                greyscale[pixelData[255]]++;
+                greyscale[255]++;
             }
         }
     }
