@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 /**
  * @author HMV - Home Medical Viewer
+ * 
+ * Diese Datei sucht nach Bildern im DICOM-FORMAT und speichert diese in einer Liste
  */
 public class DicomImporter 
 {
@@ -13,6 +15,11 @@ public class DicomImporter
     
     public DicomImporter()
     {      
+    }
+    
+    public DicomImporter(String pathName)
+    {
+        importDicomDirectory(pathName);
     }
     
     public void importDicomDirectory(String pathName)

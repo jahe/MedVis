@@ -2,6 +2,8 @@ package hmv.help;
 
 /**
  * @author HMV - Home Medical Viewer
+ * 
+ * Diese Klasse berechnet das beste ReferenzBild was angezeigt werden soll
  */
 public class Mutual 
 {

@@ -8,6 +8,8 @@ import com.pixelmed.dicom.ValueRepresentation;
 
 /**
  * @author HMV - Home Medical Viewer
+ * 
+ * Diese Klasse verfügt über Methoden um an wichtige Daten im Header einer DICOM-File zu kommen
  */
 public class HeaderAttribute
 {
